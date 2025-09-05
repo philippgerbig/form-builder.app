@@ -33,9 +33,10 @@ export function AddFormElementButton(props: AddFormElementButtonProps) {
     className={
       cn("flex flex-col cursor-grab select-none items-center justify-center gap-2 rounded-md p-4 border-1 text-muted-foreground bg-card hover:text-foreground relative",
         isDragging && "cursor-grabbing z-20",
-        disabled && "cursor-not-allowed hover:text-muted opacity-50 bg-background",
+        disabled && "cursor-not-allowed hover:text-muted-foreground opacity-50 bg-background",
       )}
-    ref={!disabled ? setNodeRef : null} style={!disabled ? style : {}} {...!disabled ? listeners : {}} {...!disabled ? attributes : {}}
+    ref={!disabled ? setNodeRef : null}
+    style={!disabled ? style : {}} {...!disabled ? listeners : {}} {...!disabled ? attributes : {}}
   >
     <DynamicIcon name={iconName} width={24} height={24}/>
     <span
