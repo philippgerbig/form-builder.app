@@ -4,18 +4,20 @@ import {DynamicIcon, IconName} from 'lucide-react/dynamic';
 import {useDraggable} from '@dnd-kit/core';
 import {CSS} from '@dnd-kit/utilities';
 import {cn} from "@/lib/utils";
-import {Badge} from "@/components/ui/badge";
+import {Badge, badgeVariants} from "@/components/ui/badge";
+import type {VariantProps} from "class-variance-authority";
 
 type AddFormElementButtonProps = {
   title: string,
   type?: string,
   badge?: string,
+  badgeVariant?: "default" | "secondary" | "destructive" | "outline" | null | undefined,
   icon?: IconName,
   disabled?: boolean,
 }
 
 export function AddFormElementButton(props: AddFormElementButtonProps) {
-  const {title, icon, badge, disabled, type} = props;
+  const {title, icon, badge, disabled, type, badgeVariant} = props;
   const iconName: IconName = icon || "alarm-check";
 
   const {attributes, listeners, setNodeRef, transform, isDragging} = useDraggable({
@@ -43,6 +45,7 @@ export function AddFormElementButton(props: AddFormElementButtonProps) {
       className="text-sm">
            {title}
          </span>
-    {badge && <div className="absolute top-0 right-0 p-1"><Badge variant="secondary">{badge}</Badge></div>}
+    {badge &&
+      <div className="absolute top-0 right-0 p-1"><Badge variant={badgeVariant || "secondary"}>{badge}</Badge></div>}
   </div>
 }

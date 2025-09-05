@@ -11,7 +11,8 @@ export function FormDesignerSidebar() {
     <SidebarSection title="Form Elements">
       {Object.keys(FormElements).map(key => {
         const element: FormElement = FormElements[key as ElementsType]
-        return <AddFormElementButton {...element.designerButton} type={element.type} key={key}/>
+        const { type } = element
+        return <AddFormElementButton {...element.designerButton} type={type} badge={type !== 'Textfield' ? 'pro' : undefined} badgeVariant="default" disabled={type !== 'Textfield'} key={key}/>
       })}
       <AddFormElementButton title="Textarea" icon="text" badge="coming soon" disabled/>
       <AddFormElementButton title="Richtext" icon="text" badge="coming soon" disabled/>
