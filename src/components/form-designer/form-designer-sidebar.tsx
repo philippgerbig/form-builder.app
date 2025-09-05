@@ -23,6 +23,7 @@ export function FormDesignerSidebar() {
 
     <SidebarSection title="Layout Elements">
       <AddFormElementButton title="Headline" icon="heading" badge="coming soon" disabled/>
+      <AddFormElementButton title="Paragraph" icon="text-quote" badge="coming soon" disabled/>
       <AddFormElementButton title="Divider" icon="minus" badge="coming soon" disabled/>
       <AddFormElementButton title="Columns" icon="columns-2" badge="coming soon" disabled/>
       <AddFormElementButton title="Group" icon="group" badge="coming soon" disabled/>
